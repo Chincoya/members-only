@@ -21,12 +21,12 @@ ActiveRecord::Schema.define(version: 2020_01_15_215323) do
 
   create_table "comments", force: :cascade do |t|
     t.text "content"
-    t.integer "owner_id"
-    t.integer "target_id"
+    t.integer "user_id"
+    t.integer "anonuser_id"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
-    t.index ["owner_id"], name: "index_comments_on_owner_id"
-    t.index ["target_id"], name: "index_comments_on_target_id"
+    t.index ["anonuser_id"], name: "index_comments_on_anonuser_id"
+    t.index ["user_id"], name: "index_comments_on_user_id"
   end
 
   create_table "users", force: :cascade do |t|
