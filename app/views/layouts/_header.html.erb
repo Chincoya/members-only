@@ -1,8 +1,8 @@
-<nav class="navbar inline-flex">
-  <%= link_to 'Home', root_url, method: :get, class: 'flex'%>
+<nav class="nav inline-flex">
+  <%= link_to 'Home', root_url, method: :get, class: 'nav-item'%>
   <% if logged_in? %>
-    <%= link_to 'Log out', logout_path, method: :delete, class: 'flex'%>
+    <%= link_to 'Log out', logout_path, method: :delete, class: 'nav-item'%>
   <% else %>
-    <%= link_to 'Log in', login_path, method: :get, class: 'flex'%>
+    <%= link_to 'Log in', login_path, method: :get, class: 'nav-item'%>
   <% end %>
 </nav>
