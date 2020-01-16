@@ -218,6 +218,7 @@ PLATFORMS
   ruby
 
 DEPENDENCIES
+  autoprefixer-rails
   bcrypt
   bootsnap (>= 1.4.2)
   bootstrap-sass
@@ -233,6 +234,7 @@ DEPENDENCIES
   selenium-webdriver
   spring
   spring-watcher-listen (~> 2.0.0)
+  sprockets-rails
   sqlite3 (~> 1.4)
   turbolinks (~> 5)
   tzinfo-data

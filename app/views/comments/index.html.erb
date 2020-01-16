@@ -1,17 +1,22 @@
-<h1>The house of Gossip</h1>
 
-<div class="container container-fluid">
+<div class="comments-container">
 
-  <ul>
+    <ul class="comment-l-prim container-fluid">
+      <ul class="row comment-l-sec title-row">
+        <li class="col col-sm-3"><h2 class="comment-title">Author</h2></li>
+        <li class="col col-sm-6"><h2 class="comment-title">Comment</h2></li>
+        <li class="col col-sm-3"><h2 class="comment-title">Target</h2></li>
+      </ul>
     <% @comments.each do |comment|%>
-      <ul class="inline comment-list">
-        <li class="inline inline-block col-3">
+      <ul class="row comment-l-sec">
+        <li class="col col-sm-3">
           <%= User.find(comment.user_id).name if logged_in? %>
+          <%= '[Log in to reveal]' unless logged_in? %>
         </li>
-        <li class="inline inline-block col-6">
+        <li class="col col-sm-6">
           <%= comment.content %>
         </li>
-        <li class="inline  inline-block col-3">
+        <li class="col col-sm-3">
           <%= Anonuser.find(comment.anonuser_id).name %>
         </li>
       </ul>
