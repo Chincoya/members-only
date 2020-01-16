@@ -1,13 +1,16 @@
+# frozen_string_literal: true
+
 class CommentsController < ApplicationController
-  before_action :is_logged_in?, only: [:create]
+  before_action :check_login?, only: [:create]
   def new
     @comment = Comment.new
   end
-  
+
   def create
     @data = comment_params
-    Anonuser.create({name: @data[:anonuser_id]}) unless Anonuser.find_by(name: @data[:anonuser_id])
-    @comment = Comment.new({content: @data[:content], user_id: session[:user_id], anonuser_id: Anonuser.find_by(name: @data[:anonuser_id]).id})
+    Anonuser.create(name: @data[:anonuser_id]) unless Anonuser.find_by(name: @data[:anonuser_id])
+    @comment = Comment.new(content: @data[:content], user_id: session[:user_id],
+                           anonuser_id: Anonuser.find_by(name: @data[:anonuser_id]).id)
     if @comment.save
       redirect_to root_url
     else
@@ -24,5 +27,4 @@ class CommentsController < ApplicationController
   def comment_params
     params.require(:comment).permit(:content, :anonuser_id)
   end
-
 end

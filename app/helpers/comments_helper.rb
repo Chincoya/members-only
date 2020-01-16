@@ -1,6 +1,7 @@
-module CommentsHelper
+# frozen_string_literal: true
 
-  def is_logged_in?
+module CommentsHelper
+  def check_login?
     if logged_in?
       flash[:success] = 'Comment Posted'
       true
@@ -9,5 +10,4 @@ module CommentsHelper
       false
     end
   end
-
 end
