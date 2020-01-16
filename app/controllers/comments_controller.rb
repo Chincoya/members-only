@@ -15,6 +15,10 @@ class CommentsController < ApplicationController
     end
   end
 
+  def index
+    @comments = Comment.all
+  end
+
   private
 
   def comment_params

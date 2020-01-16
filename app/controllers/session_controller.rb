@@ -8,7 +8,7 @@ class SessionController < ApplicationController
     if user && user.authenticate(params[:session][:password])
       # Log the user in and redirect to the user's show page.
       log_in user
-      redirect_to root_url
+      redirect_to index_url
     else
       # Create an error message.
       render 'new'
