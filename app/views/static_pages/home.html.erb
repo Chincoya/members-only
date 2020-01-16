@@ -1,0 +1,7 @@
+<h1>Hello</h1>
+
+<% if logged_in? %>
+<%=   link_to 'Log out', logout_path, method: :delete %>
+<% else %>
+      <p>logged out</p>
+<% end%>

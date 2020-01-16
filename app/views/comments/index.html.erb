@@ -1,0 +1,23 @@
+<h1>The house of Gossip</h1>
+
+<div class="container container-fluid">
+
+  <ul>
+    <% @comments.each do |comment|%>
+      <ul class="inline comment-list">
+        <li class="inline inline-block col-3">
+          <%= User.find(comment.user_id).name if logged_in? %>
+        </li>
+        <li class="inline inline-block col-6">
+          <%= comment.content %>
+        </li>
+        <li class="inline  inline-block col-3">
+          <%= Anonuser.find(comment.anonuser_id).name %>
+        </li>
+      </ul>
+      <br>
+    <% end %>  
+  </ul>
+
+</div>
+
