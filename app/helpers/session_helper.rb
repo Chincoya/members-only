@@ -5,7 +5,6 @@ module SessionHelper
   end
 
   def logged_in?
-    puts session[:user_id]
     session[:user_id]
   end
 
