@@ -48,5 +48,5 @@ For its building. Other dependencies are listed in the Gemfile, located inside t
 
 ### Authors
 
-- Roberto Erik Nava  | [Github](https://github.com/Oitur/re-former)
+- Roberto Erik Nava  | [Github](https://github.com/Oitur/)
 - Daniel Chincoya    | [@chincoya7](https://twitter.com/chincoya7)
