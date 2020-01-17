@@ -1,0 +1,29 @@
+// Place all the styles related to the posts controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: https://sass-lang.com/
+
+
+.comments-container {
+  height: 100%;
+  width: 100%;
+  ul {
+    width: 100%;
+    padding: 0 30px;
+  }
+}
+
+li {
+  overflow: auto;
+}
+
+
+.title-row {
+  margin: 20px;
+  clear: both;
+  li {
+    h2 {
+      font-weight: bold;
+      font-size: 25px;
+    }
+  }
+}
