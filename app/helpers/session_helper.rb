@@ -1,10 +1,8 @@
 # frozen_string_literal: true
 
 module SessionHelper
-
-
   def logged_in?
-    if session[:user_id] || cookies.signed[:user_id] 
+    if session[:user_id] || cookies.signed[:user_id]
       true
     else
       false
@@ -22,22 +20,20 @@ module SessionHelper
       @current_user ||= User.find(user_id)
     elsif (user_id = cookies.signed[:user_id])
       user = User.find(user_id)
-      user.attributes.each { |att|  puts att }
-      if user && user.authenticated?(cookies[:remember_token])
-        @current_user = user      
-      end
+      user.attributes.each { |att| puts att }
+      @current_user = user if user&.authenticated?(cookies[:remember_token])
     else
-      @current_user = nil      
+      @current_user = nil
     end
     @current_user
   end
 
   def log_in(user)
-    unless logged_in?
-      session[:user_id] = user.id
-      flash[:success] = "Welcome, #{user.name}!!"
-      remember_me user
-    end
+    return if logged_in?
+
+    session[:user_id] = user.id
+    flash[:success] = "Welcome, #{user.name}!!"
+    remember_me user
   end
 
   def logout
@@ -49,5 +45,4 @@ module SessionHelper
     cookies.delete(:remember_token)
     cookies.delete(:user_id)
   end
-
 end

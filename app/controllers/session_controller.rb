@@ -5,13 +5,13 @@ class SessionController < ApplicationController
 
   def create
     user = User.find_by(email: params[:session][:email].downcase)
-    if user && user.authenticate(params[:session][:password])
+    if user&.authenticate(params[:session][:password])
       log_in user
       redirect_to index_url
     else
       pass = 'password'
       em = 'email'
-      flash.now[:danger] = "Invalid #{ user ? pass : em }"
+      flash.now[:danger] = "Invalid #{user ? pass : em}"
       render 'new'
     end
   end
@@ -21,5 +21,4 @@ class SessionController < ApplicationController
     forget current_user
     redirect_to root_url
   end
-  
 end
