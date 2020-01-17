@@ -1,6 +1,10 @@
 
 <div class="comments-container">
 
+  <% if logged_in? %>
+    <%= link_to 'Create new post', comments_new_path, class: 'btn btn-danger' %>
+  <% end %>
+
     <ul class="comment-l-prim container-fluid">
       <ul class="row comment-l-sec title-row">
         <li class="col col-sm-3"><h2 class="comment-title">Author</h2></li>
