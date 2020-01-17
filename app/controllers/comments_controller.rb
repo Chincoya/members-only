@@ -9,7 +9,7 @@ class CommentsController < ApplicationController
   def create
     @data = comment_params
     Anonuser.create(name: @data[:anonuser_id]) unless Anonuser.find_by(name: @data[:anonuser_id])
-    @comment = Comment.new(content: @data[:content], user_id: session[:user_id],
+    @comment = Comment.new(content: @data[:content], user_id: current_user.id,
                            anonuser_id: Anonuser.find_by(name: @data[:anonuser_id]).id)
     if @comment.save
       redirect_to root_url
