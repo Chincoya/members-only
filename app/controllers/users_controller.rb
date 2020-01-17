@@ -8,10 +8,11 @@ class UsersController < ApplicationController
   def create
     @user = User.new(user_params)
     if @user.save
-      # log_in @user
-      # flash[:success] = "Welcome!!"
-      redirect_to root_url
+      log_in @user
+      flash[:success] = 'Welcome!!'
+      redirect_to index_url
     else
+      flash.now[:danger] = @user.errors.full_messages.to_s
       render 'new'
     end
   end
