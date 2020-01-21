@@ -11,7 +11,7 @@ class UsersController < ApplicationController
       log_in @user
 
       flash[:success] = 'Welcome!!'
-      redirect_to index_url
+      redirect_to posts_path
     else
       flash.now[:danger] = @user.errors.full_messages.to_s
       render 'new'

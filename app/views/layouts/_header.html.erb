@@ -3,7 +3,7 @@
 <nav id='header'>
   <h1 class="d-inline"><%= link_to  'The Gossip House', root_url %></h1>
   <div class="header-links">
-    <%= link_to 'Posts', index_path, method: :get, class: 'btn btn-danger' %>
+    <%= link_to 'Posts', posts_path, method: :get, class: 'btn btn-danger' %>
     <% if logged_in? %>
       <%= link_to 'Log out', logout_path, method: :delete, class: 'btn btn-danger' %>
     <% else %>
