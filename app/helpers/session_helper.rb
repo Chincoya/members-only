@@ -15,19 +15,6 @@ module SessionHelper
     cookies.permanent[:remember_token] = user.remember_token
   end
 
-  def current_user
-    if (user_id = session[:user_id])
-      @current_user ||= User.find(user_id)
-    elsif (user_id = cookies.signed[:user_id])
-      user = User.find(user_id)
-      user.attributes.each { |att| puts att }
-      @current_user = user if user&.authenticated?(cookies[:remember_token])
-    else
-      @current_user = nil
-    end
-    @current_user
-  end
-
   def log_in(user)
     return if logged_in?
 
