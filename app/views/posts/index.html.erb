@@ -11,7 +11,7 @@
         <li class="col col-sm-6"><h2 class="comment-title">Comment</h2></li>
         <li class="col col-sm-3"><h2 class="comment-title">Target</h2></li>
       </ul>
-    <% @comments.each do |comment|%>
+    <% @posts.each do |comment|%>
       <ul class="row comment-l-sec">
         <li class="col col-sm-3">
           <%= User.find(comment.user_id).name if logged_in? %>

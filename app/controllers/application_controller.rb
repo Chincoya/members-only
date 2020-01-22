@@ -3,7 +3,7 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   include SessionHelper
-  include CommentsHelper
+  include PostsHelper
 
   def current_user
     if (user_id = session[:user_id])
