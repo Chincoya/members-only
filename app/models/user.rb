@@ -10,7 +10,7 @@ class User < ApplicationRecord
                     format: { with: VALID_EMAIL_REGEX },
                     uniqueness: true
 
-  has_many :comments
+  has_many :posts
 
   def remember
     self.remember_token = User.new_token
