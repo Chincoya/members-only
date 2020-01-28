@@ -31,7 +31,7 @@ gem 'bcrypt'
 gem 'bootsnap', '>= 1.4.2', require: false
 
 gem 'autoprefixer-rails'
-gem 'bootstrap-sass'
+gem 'bootstrap'
 gem 'coffee-rails'
 gem 'jquery-rails'
 gem 'sprockets-rails'
